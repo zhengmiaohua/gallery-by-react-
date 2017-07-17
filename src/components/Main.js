@@ -55,7 +55,6 @@ class ImgFigure extends React.Component {
 
     let imgFigureClassName = 'img-figure';
     imgFigureClassName += this.props.arrange.isInverse ? ' is-inverse' : '';
-    console.log(imgFigureClassName);
 
     return (
       <figure className = {imgFigureClassName} style={styleObj} onClick={this.handleClick}>
@@ -68,6 +67,30 @@ class ImgFigure extends React.Component {
             </div>
           </figcaption>
       </figure>
+    );
+  }
+}
+
+/**
+ * 控制组件
+ */
+
+class ControllerUnit extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+  }
+
+  render() {
+    return (
+      <span className="controller-unit" onClick={this.handleClick}></span>
     );
   }
 }
@@ -267,6 +290,7 @@ class AppComponent extends React.Component {
 
       imgFigures.push(<ImgFigure data={value} key={value.title} ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]}
       inverse={this.inverse(index)} center={this.center(index)}/>);
+      controllerUnits.push(<ControllerUnit/>)
     }.bind(this));
 
     return (
