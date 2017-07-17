@@ -3,7 +3,10 @@ html, body {
   height: 100%;
   background-color: #222;
 }
-
+#app {
+  width: 100%;
+  height: 100%;
+}
 .content {
   width: 100%;
   height: 100%;
@@ -23,15 +26,23 @@ html, body {
   overflow: hidden;
   .img-figure {
     position: absolute;
-    width: 260px;
-    height: 300px;
+    width: 320px;
+    height: 360px;
     margin: 0;
     padding: 40px;
     box-sizing: border-box;
     background-color: #fff;
+    cursor: pointer;
     img {
-      width: 100%;
+      width: 240px;
+      height:240px;
+      backface-visibility:hidden;
     }
+    /* 图片翻转  -- start */
+    .is-inverse {
+      transform: translate(260px) rotateY(180deg);
+    }
+    /* 图片翻转  -- end */
   }
   figcaption {
     text-align: center;
@@ -39,6 +50,19 @@ html, body {
       margin: 20px 0 0 0;
       color: #a7a0a2;
       font-size: 16px;
+    }
+    .img-back {
+      position: absolute; /* 相对于img-sec进行定位 */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 50px 40px;
+      overflow: auto;
+      color: #666;
+      background: #fff;
+      transform: rotateY(180deg) translateZ(1px);
     }
   }
 }
