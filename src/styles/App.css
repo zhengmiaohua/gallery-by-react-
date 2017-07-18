@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'icons-turn-arrow';
+  src: url('../fonts/icons/turn-arrow.eot') format('enbedded'),
+   url('../fonts/icons/turn-arrow.woff') format('woff'),
+    url('../fonts/icons/turn-arrow.ttf') format('truetype'),
+     url('../fonts/icons/turn-arrow.svg') format('svg');
+}
+
+
 html,
 body {
   width: 100%;
@@ -94,6 +103,32 @@ figcaption .img-back {
   margin: 0 5px;
   text-align: center;
   cursor: pointer;
+  vertical-align: middle;
   background-color: #aaa;
   border-radius: 50%;
+  transform: scale(.5);
+  transition: transform 0.6s ease-in-out, background-color 0.3s;
+}
+/*字体文件代替图片文件，矢量图形，支持css3*/
+.controller-unit.is-center {
+  transform: scale(1);
+  background-color: #888;
+}
+
+.controller-unit.is-center::after {
+  color: #fff;
+  font-family: "icons-turn-arrow";
+  font-size: 15px;
+  content: "\e600";
+  line-height: 30px;
+  -webkit-font-smoothing: antialiased;
+  /* 开启chrome在Mac下字体渲染的灰阶平滑 */
+  -moz-osx-font-smoothing: grayscale;
+  /* 开启firefox在Mac下字体渲染的灰阶平滑 */
+}
+
+.controller-unit.is-center.is-inverse {
+  background-color: #555;
+  transform: rotateY(180deg);
+  /* 翻转180度 */
 }
